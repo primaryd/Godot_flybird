@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2u8nask03d1l"]
+
+[ext_resource type="Script" path="res://BackGround_Manager/back_ground_manager.gd" id="1_lxcsh"]
+[ext_resource type="Texture2D" uid="uid://c87kfmmgs008y" path="res://flappybird/bg_day.png" id="1_p01fi"]
+
+[node name="BackGround_Manager" type="Node"]
+script = ExtResource("1_lxcsh")
+
+[node name="BgDay0" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_p01fi")
+offset = Vector2(-288, 0)
+
+[node name="BgDay1" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_p01fi")
+
+[node name="BgDay2" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_p01fi")
+offset = Vector2(288, 0)
+
+[node name="BgDay3" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_p01fi")
+offset = Vector2(576, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
