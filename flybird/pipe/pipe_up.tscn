@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5j4kq6rcmrpx"]
+
+[ext_resource type="Texture2D" uid="uid://ce2sj3wda5fqg" path="res://flappybird/pipe_up.png" id="1_2lecw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0asvv"]
+size = Vector2(51, 323)
+
+[node name="pipe_up" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2lecw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_0asvv")
