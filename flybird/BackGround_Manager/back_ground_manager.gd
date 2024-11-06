@@ -7,6 +7,7 @@ var image_list
 #获取子节点，也就是背景图片
 func  _ready() -> void:
 	image_list=get_children()
+	
 
 
 func _physics_process(delta: float) -> void:
