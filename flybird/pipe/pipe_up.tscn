@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5j4kq6rcmrpx"]
+[gd_scene load_steps=4 format=3 uid="uid://b5j4kq6rcmrpx"]
 
 [ext_resource type="Texture2D" uid="uid://ce2sj3wda5fqg" path="res://flappybird/pipe_up.png" id="1_2lecw"]
+[ext_resource type="Script" path="res://pipe_move.gd" id="1_va470"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0asvv"]
 size = Vector2(51, 323)
 
 [node name="pipe_up" type="Node2D"]
+top_level = true
+script = ExtResource("1_va470")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2lecw")
