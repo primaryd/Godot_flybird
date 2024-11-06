@@ -23,6 +23,8 @@ func _ready() -> void:
 
 
 func _can_create()->void:
+	if GolbaScript.game_can_run ==false:
+		create_timer.one_shot=true
 	var up_or_down:= randi()%10  #生成应该随机数来判断 生成的水管方向
 	var pipe_scale:=randf_range(1,2.8)  #随机生成一个float数 指定为水管的长度
 	#判断 up_or_down 是奇数还是偶数 来看生成向下的水管还是向上的水管
