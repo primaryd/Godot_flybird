@@ -15,12 +15,14 @@ const  PIPE_DOWN_CREATE:=Vector2(1110,0) #pipe_down 的生成位置
 func _ready() -> void:
 	add_child(create_timer)
 	create_timer.wait_time=2
-	create_timer.timeout.connect(can_create)
+	create_timer.timeout.connect(_can_create)
 	create_timer.start( )
+	
+	GolbaScript.del_pipe.connect(_del_pipe)
+	
 
 
-func can_create()->void:
-	print("create")
+func _can_create()->void:
 	var up_or_down:= randi()%10  #生成应该随机数来判断 生成的水管方向
 	var pipe_scale:=randf_range(1,2.8)  #随机生成一个float数 指定为水管的长度
 	#判断 up_or_down 是奇数还是偶数 来看生成向下的水管还是向上的水管
@@ -34,3 +36,7 @@ func can_create()->void:
 		pipe.position=PIPE_UP_CREATE
 		pipe.scale.y=pipe_scale 
 		add_child(pipe)
+
+
+func _del_pipe(pipe)->void:
+	remove_child(pipe)
