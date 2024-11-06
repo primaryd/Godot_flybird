@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c77in8fsgpdjl"]
+[gd_scene load_steps=3 format=3 uid="uid://c77in8fsgpdjl"]
 
 [ext_resource type="PackedScene" uid="uid://d2u8nask03d1l" path="res://BackGround_Manager/back_ground_manager.tscn" id="1_mihyk"]
+[ext_resource type="PackedScene" uid="uid://csm20qmpd3rxa" path="res://Bird/bird.tscn" id="2_4usaj"]
 
 [node name="Main" type="Node2D"]
 
 [node name="BackGround_Manager" parent="." instance=ExtResource("1_mihyk")]
+
+[node name="Bird" parent="." instance=ExtResource("2_4usaj")]
+top_level = true
