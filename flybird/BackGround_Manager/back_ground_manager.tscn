@@ -7,22 +7,30 @@
 script = ExtResource("1_lxcsh")
 
 [node name="BgDay0" type="Sprite2D" parent="."]
+position = Vector2(0, 200)
 scale = Vector2(2, 2)
 texture = ExtResource("1_p01fi")
 offset = Vector2(-288, 0)
 
 [node name="BgDay1" type="Sprite2D" parent="."]
+position = Vector2(0, 200)
 scale = Vector2(2, 2)
 texture = ExtResource("1_p01fi")
 
 [node name="BgDay2" type="Sprite2D" parent="."]
+position = Vector2(0, 200)
 scale = Vector2(2, 2)
 texture = ExtResource("1_p01fi")
 offset = Vector2(288, 0)
 
 [node name="BgDay3" type="Sprite2D" parent="."]
+position = Vector2(0, 200)
 scale = Vector2(2, 2)
 texture = ExtResource("1_p01fi")
 offset = Vector2(576, 0)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="BgDay4" type="Sprite2D" parent="."]
+position = Vector2(0, 200)
+scale = Vector2(2, 2)
+texture = ExtResource("1_p01fi")
+offset = Vector2(864, 0)
