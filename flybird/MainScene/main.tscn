@@ -1,17 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://c77in8fsgpdjl"]
+[gd_scene load_steps=13 format=3 uid="uid://c77in8fsgpdjl"]
 
 [ext_resource type="Script" path="res://MainScene/main.gd" id="1_ema4w"]
 [ext_resource type="PackedScene" uid="uid://d2u8nask03d1l" path="res://BackGround_Manager/back_ground_manager.tscn" id="1_mihyk"]
 [ext_resource type="PackedScene" uid="uid://csm20qmpd3rxa" path="res://Bird/bird.tscn" id="2_4usaj"]
 [ext_resource type="Script" path="res://MainScene/pipe_create_manager.gd" id="3_52pfo"]
 [ext_resource type="Texture2D" uid="uid://bgii0onju2ia6" path="res://flappybird/text_game_over.png" id="4_i88dk"]
+[ext_resource type="Texture2D" uid="uid://b0cgqngrmfh4m" path="res://flappybird/text_ready.png" id="6_px655"]
 
 [sub_resource type="Animation" id="Animation_34610"]
 resource_name = "Game_over"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextGameOver:position:x")
+tracks/0/path = NodePath("GameOver:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,7 +23,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TextGameOver:position:y")
+tracks/1/path = NodePath("GameOver:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -36,7 +37,7 @@ length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextGameOver:position:x")
+tracks/0/path = NodePath("GameOver:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -47,7 +48,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TextGameOver:position:y")
+tracks/1/path = NodePath("GameOver:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -58,7 +59,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("TextGameOver:position")
+tracks/2/path = NodePath("GameOver:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -67,13 +68,47 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(512, -300)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Ready:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(512, -300)]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Ready:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(512, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Ready:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-300, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_c3qph"]
 resource_name = "defalt"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextGameOver:position")
+tracks/0/path = NodePath("GameOver:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -82,10 +117,74 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(512, -300)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ready:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(512, -300)]
+}
+
+[sub_resource type="Animation" id="Animation_ll7y7"]
+resource_name = "Game_ready_in"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ready:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(512, -0.25, 0, 0.25, 0, 512, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ready:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-300, -0.25, 0, 0.7, 2, 200, -0.3, -124, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_3rydo"]
+resource_name = "Game_ready_out"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ready:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(512, -0.25, 0, 0.25, 0, 512, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ready:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(200, -0.25, 0, 0.233333, 121, 700, -0.566667, -2, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5p13s"]
 _data = {
 "Game_over": SubResource("Animation_34610"),
+"Game_ready_in": SubResource("Animation_ll7y7"),
+"Game_ready_out": SubResource("Animation_3rydo"),
 "RESET": SubResource("Animation_b38e7"),
 "defalt": SubResource("Animation_c3qph")
 }
@@ -101,7 +200,7 @@ top_level = true
 [node name="PipeCreate_Manager" type="Node" parent="."]
 script = ExtResource("3_52pfo")
 
-[node name="TextGameOver" type="Sprite2D" parent="."]
+[node name="GameOver" type="Sprite2D" parent="."]
 top_level = true
 position = Vector2(512, -300)
 scale = Vector2(3, 3)
@@ -111,3 +210,9 @@ texture = ExtResource("4_i88dk")
 libraries = {
 "": SubResource("AnimationLibrary_5p13s")
 }
+
+[node name="Ready" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(512, -300)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_px655")

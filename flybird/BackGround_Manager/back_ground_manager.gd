@@ -10,7 +10,7 @@ func  _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if GolbaScript.game_can_run:
+	if GolbaScript.game_can_run or GolbaScript.game_ready:
 		for image in image_list:  
 			image.offset.x-=SPEED*delta
 			if image.offset.x<=-BORDER:

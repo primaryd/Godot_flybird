@@ -28,7 +28,7 @@ height = 36.0
 [node name="Bird" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_is2df")
-fly_force = -250.0
+fly_force = -300.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oba3m")
