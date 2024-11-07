@@ -15,7 +15,7 @@ func _game_over()->void:
 	animation_player.play("Game_over")
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_select"):
+	if event.is_action_pressed("ui_select") and not animation_player.is_playing():
 		GolbaScript.game_start.emit()
 
 func _game_start()->void:
