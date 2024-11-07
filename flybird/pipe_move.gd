@@ -10,8 +10,6 @@ func _process(delta: float) -> void:
 			GolbaScript.del_pipe.emit(self)
 
 
-
-
+#........
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	GolbaScript.game_can_run=false
 	GolbaScript.game_over.emit()

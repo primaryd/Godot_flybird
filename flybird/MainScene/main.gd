@@ -11,6 +11,7 @@ func _ready() -> void:
 
 
 func _game_over()->void:
+	GolbaScript.game_can_run=false
 	animation_player.play("Game_over")
 
 func _unhandled_input(event: InputEvent) -> void:

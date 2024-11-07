@@ -14,6 +14,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if GolbaScript.game_can_run:
+		if position.y<-26 or position.y>626:
+			if GolbaScript.game_can_run == true:
+				GolbaScript.game_over.emit()
+		
 		velocity.y+=gravity*delta
 		if Input.is_action_just_pressed("ui_select"):
 			velocity.y = fly_force
