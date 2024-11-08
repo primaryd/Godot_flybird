@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var score: Label = $CanvasLayer/Score
+
 
 
 func _ready() -> void:
@@ -8,6 +10,8 @@ func _ready() -> void:
 	GolbaScript.game_over.connect(_game_over)
 	GolbaScript.game_start.connect(_game_start)
 	animation_player.play("Game_ready_in")
+	GolbaScript.record_score.connect(_record_score)
+
 
 
 func _game_over()->void:
@@ -23,3 +27,7 @@ func _game_start()->void:
 		GolbaScript.game_ready=false
 		GolbaScript.game_can_run=true
 		animation_player.play("Game_ready_out")
+
+func _record_score()->void:
+	GolbaScript.score+=1
+	score.text="得分:"+str(GolbaScript.score)
