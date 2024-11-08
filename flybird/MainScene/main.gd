@@ -39,6 +39,7 @@ func _record_score()->void:
 
 
 func _on_setting_button_down() -> void:
+	#有bug未修复:再按下一次鼠标左键后，只要将指针移动到按钮上 按空格就能触发（不知道什么原因）
 	print("setting")
 	
 

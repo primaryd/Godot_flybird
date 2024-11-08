@@ -311,7 +311,6 @@ grow_horizontal = 0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(30, 0)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_aa3nj")
-action_mode = 0
 icon = ExtResource("7_wqje3")
 flat = true
 alignment = 2

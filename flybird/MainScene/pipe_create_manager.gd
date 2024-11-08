@@ -13,8 +13,9 @@ const  PIPE_DOWN_CREATE:=Vector2(1110,0) #pipe_down 的生成位置
 #角色的位置在屏幕中间的位置  （1024*600）（x坐标为512 y坐标为300） 水管生成的位置应该在玩家前面
 
 func _ready() -> void:
+	await GolbaScript.game_start
 	add_child(create_timer)
-	create_timer.wait_time=2
+	create_timer.wait_time=1.8
 	create_timer.timeout.connect(_can_create)
 	create_timer.start( )
 	
