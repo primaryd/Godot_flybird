@@ -8,6 +8,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	SoundManager.play_sfx("BackGroundMusic")
 	animation_player.play("defalt")
 	GolbaScript.game_over.connect(_game_over)
 	GolbaScript.game_start.connect(_game_start)
@@ -18,6 +19,7 @@ func _ready() -> void:
 
 
 func _game_over()->void:
+	SoundManager.play_sfx("Hit")
 	GolbaScript.game_can_run=false
 	animation_player.play("Game_over_in")
 
@@ -32,6 +34,7 @@ func _game_start()->void:
 		animation_player.play("Game_ready_out")
 
 func _record_score()->void:
+	SoundManager.play_sfx("Get")
 	GolbaScript.score+=1
 	score.text="得分:"+str(GolbaScript.score)
 
@@ -53,3 +56,12 @@ func _on_restart_button_down() -> void:
 	#animation_player.play("Game_over_out")
 	
 	
+
+	
+
+
+func _on_back_button_down() -> void:
+	get_tree().change_scene_to_file("res://MainScene/main.tscn")
+	GolbaScript.game_ready=true
+	GolbaScript.game_can_run=false
+	GolbaScript.score=0

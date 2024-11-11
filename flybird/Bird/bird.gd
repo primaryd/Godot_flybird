@@ -20,5 +20,6 @@ func _physics_process(delta: float) -> void:
 		
 		velocity.y+=gravity*delta
 		if Input.is_action_just_pressed("ui_select"):
+			SoundManager.play_sfx("Fly")
 			velocity.y = fly_force
 		move_and_slide()

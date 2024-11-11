@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c77in8fsgpdjl"]
+[gd_scene load_steps=21 format=3 uid="uid://c77in8fsgpdjl"]
 
 [ext_resource type="Script" path="res://MainScene/main.gd" id="1_ema4w"]
 [ext_resource type="PackedScene" uid="uid://d2u8nask03d1l" path="res://BackGround_Manager/back_ground_manager.tscn" id="1_mihyk"]
@@ -8,6 +8,94 @@
 [ext_resource type="Texture2D" uid="uid://b0cgqngrmfh4m" path="res://flappybird/text_ready.png" id="6_px655"]
 [ext_resource type="Texture2D" uid="uid://c8pi6qmorhlq" path="res://flappybird/Buttons/Settings.png" id="7_wqje3"]
 [ext_resource type="Texture2D" uid="uid://clq01afhw45yy" path="res://flappybird/Buttons/Restart.png" id="8_d7pi6"]
+[ext_resource type="Texture2D" uid="uid://lgkg46blbs06" path="res://flappybird/Buttons/Back.png" id="9_5sm3r"]
+[ext_resource type="Texture2D" uid="uid://cuks4nt5vtqsy" path="res://flappybird/Buttons/Leaderboard.png" id="10_vrsde"]
+
+[sub_resource type="Animation" id="Animation_34610"]
+resource_name = "Game_over_in"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOver:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(512, -0.25, 0, 0.25, 0, 512, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOver:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-300, -0.25, 0, 0.633333, 30, 300, -0.833333, -39, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Restart:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Back:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_sefhi"]
+resource_name = "Game_over_out"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOver:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(512, -0.25, 0, 0.25, 0, 512, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOver:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(300, -0.25, 0, 0.366667, 1, 700, 0, -195, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Restart:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_ll7y7"]
 resource_name = "Game_ready_in"
@@ -33,6 +121,30 @@ tracks/1/keys = {
 "points": PackedFloat32Array(-300, -0.25, 0, 0.7, 2, 200, -0.3, -124, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Warn:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Warn:theme_override_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_3rydo"]
 resource_name = "Game_ready_out"
@@ -57,6 +169,30 @@ tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(200, -0.25, 0, 0.233333, 121, 700, -0.566667, -2, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Warn:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Warn:theme_override_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_b38e7"]
@@ -141,6 +277,42 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Back:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Warn:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/Warn:theme_override_colors/font_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_c3qph"]
 resource_name = "defalt"
@@ -169,80 +341,6 @@ tracks/1/keys = {
 "values": [Vector2(512, -300)]
 }
 
-[sub_resource type="Animation" id="Animation_34610"]
-resource_name = "Game_over_in"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GameOver:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(512, -0.25, 0, 0.25, 0, 512, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameOver:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-300, -0.25, 0, 0.633333, 30, 300, -0.833333, -39, 0, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Restart:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_sefhi"]
-resource_name = "Game_over_out"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GameOver:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(512, -0.25, 0, 0.25, 0, 512, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameOver:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(300, -0.25, 0, 0.366667, 1, 700, 0, -195, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Restart:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5p13s"]
 _data = {
 "Game_over_in": SubResource("Animation_34610"),
@@ -256,6 +354,8 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aa3nj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chwyp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yb2le"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ema4w")
@@ -320,9 +420,9 @@ expand_icon = true
 
 [node name="Restart" type="Button" parent="CanvasLayer"]
 visible = false
-offset_left = 480.0
+offset_left = 520.0
 offset_top = 350.0
-offset_right = 510.0
+offset_right = 550.0
 offset_bottom = 380.0
 scale = Vector2(3, 3)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_chwyp")
@@ -331,5 +431,33 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 0
 
+[node name="Back" type="Button" parent="CanvasLayer"]
+visible = false
+offset_left = 430.0
+offset_top = 340.0
+offset_right = 454.0
+offset_bottom = 364.0
+scale = Vector2(4.5, 4.5)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yb2le")
+icon = ExtResource("9_5sm3r")
+flat = true
+
+[node name="Rank" type="Button" parent="CanvasLayer"]
+offset_right = 30.0
+offset_bottom = 30.0
+scale = Vector2(2, 2)
+icon = ExtResource("10_vrsde")
+flat = true
+
+[node name="Warn" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 450.0
+offset_top = 500.0
+offset_right = 578.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+text = "按下空格开始游戏"
+
 [connection signal="button_down" from="CanvasLayer/Setting" to="." method="_on_setting_button_down"]
 [connection signal="button_down" from="CanvasLayer/Restart" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="CanvasLayer/Back" to="." method="_on_back_button_down"]
