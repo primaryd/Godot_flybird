@@ -1,12 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://1o5wyw7fc7x4"]
 
 [ext_resource type="Script" path="res://sound_manager.gd" id="1_8o8hq"]
-[ext_resource type="AudioStream" uid="uid://dans7qanjr0lt" path="res://FlybirdSound/BackGround.mp3" id="2_bibvi"]
+[ext_resource type="AudioStream" uid="uid://rer5q0j1mi7b" path="res://FlybirdSound/BackGround.mp3" id="2_bibvi"]
 [ext_resource type="AudioStream" uid="uid://m2ysddyxm7vv" path="res://FlybirdSound/fly.wav" id="3_7m2uf"]
 [ext_resource type="AudioStream" uid="uid://co5v6rk0xt4f2" path="res://FlybirdSound/get.mp3" id="4_11qr2"]
 [ext_resource type="AudioStream" uid="uid://bfs3vvk8wo1wf" path="res://FlybirdSound/hit.mp3" id="5_kooyr"]
 
 [node name="SoundManager" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_8o8hq")
 
 [node name="SFX" type="Node" parent="."]
@@ -17,6 +18,7 @@ volume_db = -10.0
 
 [node name="BackGroundMusic" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("2_bibvi")
+volume_db = 1.405
 
 [node name="Fly" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_7m2uf")

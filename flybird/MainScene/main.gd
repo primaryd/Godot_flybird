@@ -3,6 +3,7 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var score: Label = $CanvasLayer/Score
 @onready var bird: CharacterBody2D = $Bird
+@onready var pause: Control = $CanvasLayer/Pause
 
 
 
@@ -41,10 +42,6 @@ func _record_score()->void:
 
 
 
-func _on_setting_button_down() -> void:
-	#有bug未修复:再按下一次鼠标左键后，只要将指针移动到按钮上 按空格就能触发（不知道什么原因）
-	print("setting")
-	
 
 
 func _on_restart_button_down() -> void:
@@ -65,3 +62,16 @@ func _on_back_button_down() -> void:
 	GolbaScript.game_ready=true
 	GolbaScript.game_can_run=false
 	GolbaScript.score=0
+
+
+
+
+
+func _on_rank_button_down() -> void:
+	if not animation_player.is_playing():
+		pass
+
+
+func _on_setting_pressed() -> void:
+	if not animation_player.is_playing():
+		pause.visible=true

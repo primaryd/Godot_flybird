@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c77in8fsgpdjl"]
+[gd_scene load_steps=23 format=3 uid="uid://c77in8fsgpdjl"]
 
 [ext_resource type="Script" path="res://MainScene/main.gd" id="1_ema4w"]
 [ext_resource type="PackedScene" uid="uid://d2u8nask03d1l" path="res://BackGround_Manager/back_ground_manager.tscn" id="1_mihyk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://clq01afhw45yy" path="res://flappybird/Buttons/Restart.png" id="8_d7pi6"]
 [ext_resource type="Texture2D" uid="uid://lgkg46blbs06" path="res://flappybird/Buttons/Back.png" id="9_5sm3r"]
 [ext_resource type="Texture2D" uid="uid://cuks4nt5vtqsy" path="res://flappybird/Buttons/Leaderboard.png" id="10_vrsde"]
+[ext_resource type="PackedScene" uid="uid://xwiny5yypnpe" path="res://Case/pause.tscn" id="11_y0irq"]
 
 [sub_resource type="Animation" id="Animation_34610"]
 resource_name = "Game_over_in"
@@ -357,6 +358,8 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yb2le"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fncau"]
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ema4w")
 
@@ -410,6 +413,7 @@ offset_bottom = 30.0
 grow_horizontal = 0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(30, 0)
+focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_aa3nj")
 icon = ExtResource("7_wqje3")
 flat = true
@@ -425,6 +429,7 @@ offset_top = 350.0
 offset_right = 550.0
 offset_bottom = 380.0
 scale = Vector2(3, 3)
+focus_mode = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_chwyp")
 icon = ExtResource("8_d7pi6")
 flat = true
@@ -446,6 +451,8 @@ flat = true
 offset_right = 30.0
 offset_bottom = 30.0
 scale = Vector2(2, 2)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fncau")
 icon = ExtResource("10_vrsde")
 flat = true
 
@@ -458,6 +465,10 @@ offset_bottom = 523.0
 theme_override_colors/font_color = Color(1, 1, 1, 0)
 text = "按下空格开始游戏"
 
-[connection signal="button_down" from="CanvasLayer/Setting" to="." method="_on_setting_button_down"]
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("11_y0irq")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/Setting" to="." method="_on_setting_pressed"]
 [connection signal="button_down" from="CanvasLayer/Restart" to="." method="_on_restart_button_down"]
 [connection signal="button_down" from="CanvasLayer/Back" to="." method="_on_back_button_down"]
+[connection signal="button_down" from="CanvasLayer/Rank" to="." method="_on_rank_button_down"]
