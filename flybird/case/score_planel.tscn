@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlkkd74j6m36a"]
+[gd_scene load_steps=12 format=3 uid="uid://dlkkd74j6m36a"]
 
 [ext_resource type="Texture2D" uid="uid://d2m66u6hfyyb5" path="res://flappybird/Square Buttons 26x26.png" id="1_ant2t"]
 [ext_resource type="Texture2D" uid="uid://uq4ifc0m72lk" path="res://flappybird/medals_1.png" id="2_pha5f"]
+[ext_resource type="Script" path="res://Case/score_planel.gd" id="2_tyejw"]
 [ext_resource type="Texture2D" uid="uid://ch21kvvopd5d5" path="res://flappybird/medals_2.png" id="3_lk031"]
 [ext_resource type="Texture2D" uid="uid://ced0my6rrou0t" path="res://flappybird/medals_3.png" id="4_fif3m"]
 [ext_resource type="Texture2D" uid="uid://dv6wn4hmblcxa" path="res://flappybird/Buttons/Close.png" id="5_5mkm0"]
@@ -24,14 +25,16 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_632ma")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cpmpt"]
 
 [node name="ScorePlanel" type="PanelContainer"]
+process_mode = 3
 offset_right = 500.0
 offset_bottom = 330.0
 theme = SubResource("Theme_7buii")
+script = ExtResource("2_tyejw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Lable" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "得分榜"
 horizontal_alignment = 1
@@ -50,8 +53,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_m1wwf")
 icon = ExtResource("2_pha5f")
 flat = true
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="one" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Nobody"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -63,8 +68,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_7fpsr")
 icon = ExtResource("3_lk031")
 flat = true
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+[node name="two" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Nobody"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -76,8 +83,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_cpmpt")
 icon = ExtResource("4_fif3m")
 flat = true
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+[node name="three" type="Label" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Nobody"
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -91,7 +100,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer4"]
+[node name="close" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 text = "关闭"
 icon = ExtResource("5_5mkm0")
@@ -100,3 +109,5 @@ flat = true
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[connection signal="button_down" from="VBoxContainer/HBoxContainer4/close" to="." method="_on_close_button_down"]

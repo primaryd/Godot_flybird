@@ -4,11 +4,15 @@ extends Node2D
 @onready var score: Label = $CanvasLayer/Score
 @onready var bird: CharacterBody2D = $Bird
 @onready var pause: Control = $CanvasLayer/Pause
+@onready var score_planel: PanelContainer = $CanvasLayer/ScorePlanel
 
 
 
 
 func _ready() -> void:
+	var data=ResourceLoader.load("user://scene_data.tres") as SceneData
+	GolbaScript.now_score=data.score
+	print(GolbaScript.now_score)
 	SoundManager.play_sfx("BackGroundMusic")
 	animation_player.play("defalt")
 	GolbaScript.game_over.connect(_game_over)
@@ -20,9 +24,13 @@ func _ready() -> void:
 
 
 func _game_over()->void:
+	var data =SceneData.new()
 	SoundManager.play_sfx("Hit")
 	GolbaScript.game_can_run=false
 	animation_player.play("Game_over_in")
+	GolbaScript.now_score.append(GolbaScript.score)
+	data.score=GolbaScript.now_score
+	ResourceSaver.save(data,"user://scene_data.tres")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_select") and not animation_player.is_playing():
@@ -69,7 +77,8 @@ func _on_back_button_down() -> void:
 
 func _on_rank_button_down() -> void:
 	if not animation_player.is_playing():
-		pass
+		score_planel.visible=true
+		GolbaScript.open_score.emit()
 
 
 func _on_setting_pressed() -> void:

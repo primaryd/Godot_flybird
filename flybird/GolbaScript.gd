@@ -4,6 +4,9 @@ signal del_pipe #水管清除信号
 signal game_over #游戏结束信号
 signal game_start #游戏开始信号
 signal record_score #计分信号
+signal open_score #打开计分面板信号
+
+var now_score:Array
 
 const  CONFIG_PATH :="user://config.ini"
 const MAIN = preload("res://MainScene/main.tscn")
