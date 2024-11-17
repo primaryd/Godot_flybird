@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c77in8fsgpdjl"]
+[gd_scene load_steps=24 format=3 uid="uid://c77in8fsgpdjl"]
 
 [ext_resource type="Script" path="res://MainScene/main.gd" id="1_ema4w"]
 [ext_resource type="PackedScene" uid="uid://d2u8nask03d1l" path="res://BackGround_Manager/back_ground_manager.tscn" id="1_mihyk"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://lgkg46blbs06" path="res://flappybird/Buttons/Back.png" id="9_5sm3r"]
 [ext_resource type="Texture2D" uid="uid://cuks4nt5vtqsy" path="res://flappybird/Buttons/Leaderboard.png" id="10_vrsde"]
 [ext_resource type="PackedScene" uid="uid://xwiny5yypnpe" path="res://Case/pause.tscn" id="11_y0irq"]
+[ext_resource type="PackedScene" uid="uid://dlkkd74j6m36a" path="res://Case/score_planel.tscn" id="12_2xu5j"]
 
 [sub_resource type="Animation" id="Animation_34610"]
 resource_name = "Game_over_in"
@@ -467,6 +468,20 @@ text = "按下空格开始游戏"
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("11_y0irq")]
 visible = false
+
+[node name="ScorePlanel" parent="CanvasLayer" instance=ExtResource("12_2xu5j")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -165.0
+offset_right = 250.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="CanvasLayer/Setting" to="." method="_on_setting_pressed"]
 [connection signal="button_down" from="CanvasLayer/Restart" to="." method="_on_restart_button_down"]
